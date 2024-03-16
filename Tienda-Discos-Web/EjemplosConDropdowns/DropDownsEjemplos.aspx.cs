@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using negocio;
+using dominio;
 
-namespace Tienda_Discos_Web
+namespace Tienda_Discos_Web.EjemplosConDropdowns
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class DropDownsEjemplos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

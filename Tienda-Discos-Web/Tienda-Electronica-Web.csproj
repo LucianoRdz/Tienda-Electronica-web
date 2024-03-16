@@ -68,7 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="Home.aspx" />
+    <Content Include="EjemplosConDropdowns\DropDownsEjemplos.aspx" />
+    <Content Include="FormAlta.aspx" />
     <Content Include="Lista.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -80,12 +81,19 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="EjemplosConDropdowns\DropDownsEjemplos.aspx.cs">
+      <DependentUpon>DropDownsEjemplos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="EjemplosConDropdowns\DropDownsEjemplos.aspx.designer.cs">
+      <DependentUpon>DropDownsEjemplos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormAlta.aspx.cs">
+      <DependentUpon>FormAlta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormAlta.aspx.designer.cs">
+      <DependentUpon>FormAlta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Lista.aspx.cs">
       <DependentUpon>Lista.aspx</DependentUpon>

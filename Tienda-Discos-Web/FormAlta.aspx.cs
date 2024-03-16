@@ -9,17 +9,11 @@ using dominio;
 
 namespace Tienda_Electronica_Web
 {
-    public partial class Lista : System.Web.UI.Page
+    public partial class FormAlta : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = negocio.listarConSP();
-            dgvArticulos.DataBind();
+
         }
     }
-    //protected void btnAceptar_Click(object sender, EventArgs e)
-    //{
-        
-    //}
 }
