@@ -26,11 +26,6 @@ namespace Tienda_Electronica_Web
             
         }
 
-        protected void btnEjemplo_Click(object sender, EventArgs e)
-        {
-            string valor = ((Button)sender).CommandArgument;
-        }
-
         
     }
 }

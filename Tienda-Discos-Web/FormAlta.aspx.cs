@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using negocio;
 using dominio;
+using System.Data.SqlTypes;
 
 namespace Tienda_Electronica_Web
 {
@@ -89,7 +90,7 @@ namespace Tienda_Electronica_Web
                 nuevo.Codigo = txtCodigo.Text;
                 nuevo.Nombre = txtNombre.Text;
                 nuevo.Descripcion = txtDescripcion.Text;
-                nuevo.Precio = int.Parse(txtPrecio.Text);
+                nuevo.Precio = SqlMoney.Parse(txtPrecio.Text);
                 nuevo.ImagenUrl = txtImagenUrl.Text;
 
                 nuevo.Marca = new Marca();

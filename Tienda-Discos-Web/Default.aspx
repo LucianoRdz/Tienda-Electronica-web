@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Pagina default</h1>
+    <h1>Todos los Productos</h1>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
@@ -33,12 +33,15 @@
                         <div class="card-body">
                             <h5 class="card-title"><%#Eval("Nombre") %></h5>
                             <p class="card-text"><%#Eval("Descripcion") %></p>
-                            <asp:button Text="Boton" CssClass="btn btn-primary" runat="server" ID="btnEjemplo" CommandArgument='<%#Eval("Id")%>' CommandName="ArticuloId" OnClick="btnEjemplo_Click"/>
+                            
                         </div>
                     </div>
                 </div>
             </ItemTemplate>
         </asp:Repeater>
     </div>
-
+    <footer>
+        <hr />
+        <p>FOOTER</p>
+    </footer>
 </asp:Content>
