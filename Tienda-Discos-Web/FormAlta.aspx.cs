@@ -13,10 +13,11 @@ namespace Tienda_Electronica_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtId.Enabled=false;
+            txtId.Enabled = false;
 
             try
             {
+                //Modificacion inicial
                 if (!IsPostBack)
                 {
                     MarcaNegocio negocio = new MarcaNegocio();
@@ -35,17 +36,41 @@ namespace Tienda_Electronica_Web
                     ddlCategoria.DataTextField = "Descripcion";
                     ddlCategoria.DataBind();
                 }
+
+                // configuracion si se esta modificando
+
+                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+                if (id != "" && !IsPostBack)
+                {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    // List<Articulo> lista = negocio.listar(id);
+                    //Articulo seleccionado = lista[0];
+                    Articulo seleccionado = (negocio.listar(id))[0];
+
+                    //pre cargar los campos
+                    txtId.Text = id;
+                    txtNombre.Text = seleccionado.Nombre;
+                    txtPrecio.Text = seleccionado.Precio.ToString();
+                    txtCodigo.Text = seleccionado.Codigo;
+                    txtDescripcion.Text = seleccionado.Descripcion;
+                    txtImagenUrl.Text = seleccionado.ImagenUrl;
+
+                    ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
+                    ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
+                    txtImagenUrl_TextChanged(sender, e);
+                }
+
             }
             catch (Exception ex)
             {
-               Session.Add("error", ex);
-                throw;  
+                Session.Add("error", ex);
+                throw;
             }
 
-           
+
         }
 
-        
+
 
         protected void txtImagenUrl_TextChanged(object sender, EventArgs e)
         {
@@ -54,32 +79,41 @@ namespace Tienda_Electronica_Web
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-           
-                try
+
+            try
+            {
+                Articulo nuevo = new Articulo();
+                ArticuloNegocio negocio = new ArticuloNegocio();
+
+                nuevo.Codigo = txtCodigo.Text;
+                nuevo.Nombre = txtNombre.Text;
+                nuevo.Descripcion = txtDescripcion.Text;
+                nuevo.Precio = int.Parse(txtPrecio.Text);
+                nuevo.ImagenUrl = txtImagenUrl.Text;
+
+                nuevo.Marca = new Marca();
+                nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
+                nuevo.Categoria = new Categoria();
+                nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
+
+                if (Request.QueryString["id"] != null)
                 {
-                    Articulo nuevo = new Articulo();
-                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    nuevo.Id = int.Parse(txtId.Text);
+                    negocio.modificar(nuevo);
+                }
 
-                    nuevo.Codigo = txtCodigo.Text;
-                    nuevo.Nombre = txtNombre.Text;
-                    nuevo.Descripcion = txtDescripcion.Text;
-                    nuevo.Precio = int.Parse(txtPrecio.Text);
-                    nuevo.ImagenUrl = txtImagenUrl.Text;
-
-                    nuevo.Marca = new Marca();
-                    nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
-                    nuevo.Categoria = new Categoria();
-                    nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
-
+                else
                     negocio.agregar(nuevo);
-                Response.Redirect("Lista.aspx", false);
-                }
-                catch (Exception ex)
-                {
 
-                    Session.Add("error", ex.ToString()); ;
-                }
-            
+
+                Response.Redirect("Lista.aspx", false);
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex.ToString()); ;
+            }
+
         }
     }
 }
