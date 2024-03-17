@@ -11,10 +11,11 @@ namespace Tienda_Electronica_Web
 {
     public partial class FormAlta : System.Web.UI.Page
     {
+        public bool ConfirmaEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             txtId.Enabled = false;
-
+            ConfirmaEliminacion = false;
             try
             {
                 //Modificacion inicial
@@ -114,6 +115,29 @@ namespace Tienda_Electronica_Web
                 Session.Add("error", ex.ToString()); ;
             }
 
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmaEliminacion = true;
+        }
+
+        protected void btnConfirmaEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkConfirmaEliminacion.Checked)
+                {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                negocio.eliminar(int.Parse(txtId.Text));
+                Response.Redirect("Lista.aspx");
+                }
+            }
+            catch (Exception ex )
+            {
+
+                Session.Add("error", ex);
+            }
         }
     }
 }
