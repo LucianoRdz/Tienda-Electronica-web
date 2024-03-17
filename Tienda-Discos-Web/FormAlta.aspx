@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <h1>Formulario de Alta</h1>
     <div class="row">
@@ -23,13 +24,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="txtDescripcion" class="form-label">Descripción: </label>
-                <asp:TextBox runat="server" TextMode="MultiLine" ID="txtDescripcion" CssClass="form-control" />
-            </div>
-
-            <div class="mb-3">
-                <label for="txtCódigo" class="form-label">Código: </label>
-                <asp:TextBox runat="server" ID="txtCódigo" CssClass="form-control" />
+                <label for="txtCodigo" class="form-label">Código: </label>
+                <asp:TextBox runat="server" ID="txtCodigo" CssClass="form-control" />
             </div>
 
             <div class="mb-3">
@@ -38,33 +34,37 @@
             </div>
 
             <div class="mb-3">
-                <label for="ddlCategoría" class="form-label">Categoría:</label>
-                <asp:DropDownList ID="ddlCategoría" CssClass="form-select" runat="server"></asp:DropDownList>
+                <label for="ddlCategoria" class="form-label">Categoría:</label>
+                <asp:DropDownList ID="ddlCategoria" CssClass="form-select" runat="server"></asp:DropDownList>
             </div>
+
 
             <div class="mb-3">
-                <label for="txtCódigo" class="form-label">Código: </label>
-                <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" />
+                <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" />
+                <a href="../Lista.aspx">Cancelar</a>
             </div>
+        </div>
 
-            
+        <div class="col-6">
             <div class="mb-3">
-                <label for="txtUrlImagen" class="form-label">Url de Imagen: </label>
-                <asp:TextBox runat="server" ID="txtUrlImagen" CssClass="form-control" />
+                <label for="txtDescripcion" class="form-label">Descripción: </label>
+                <asp:TextBox runat="server" TextMode="MultiLine" ID="txtDescripcion" CssClass="form-control" />
             </div>
-
-            <div class="mb-3">
-                <%-- <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />--%>
-                <a href="Default.aspx">Cancelar</a>
-                <%--<asp:Button Text="Inactivar" ID="btnInactivar" OnClick="btnInactivar_Click" CssClass="btn btn-warning" runat="server" />--%>
-            </div>
-
-
-
-      </div>
-
-
-
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <div class="mb-3">
+                        <label for="txtImagenUrl" class="form-label">Url Imagen</label>
+                        <asp:TextBox runat="server" ID="txtImagenUrl" CssClass="form-control"
+                            AutoPostBack="true" OnTextChanged="txtImagenUrl_TextChanged" />
+                    </div>
+                    <asp:Image ImageUrl="https://grupoact.com.ar/wp-content/uploads/2020/04/placeholder.png"
+                        runat="server" ID="imgArticulo" Width="60%" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
     </div>
+
+
+
 
 </asp:Content>

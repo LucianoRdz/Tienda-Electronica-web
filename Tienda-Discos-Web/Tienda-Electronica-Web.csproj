@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="EjemplosConDropdowns\DropDownEnlazado.aspx" />
     <Content Include="EjemplosConDropdowns\DropDownsEjemplos.aspx" />
     <Content Include="FormAlta.aspx" />
     <Content Include="Lista.aspx" />
@@ -80,6 +81,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EjemplosConDropdowns\DropDownEnlazado.aspx.cs">
+      <DependentUpon>DropDownEnlazado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EjemplosConDropdowns\DropDownEnlazado.aspx.designer.cs">
+      <DependentUpon>DropDownEnlazado.aspx</DependentUpon>
     </Compile>
     <Compile Include="EjemplosConDropdowns\DropDownsEjemplos.aspx.cs">
       <DependentUpon>DropDownsEjemplos.aspx</DependentUpon>
