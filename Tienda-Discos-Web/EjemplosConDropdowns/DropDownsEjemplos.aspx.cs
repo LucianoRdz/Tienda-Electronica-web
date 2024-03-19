@@ -18,7 +18,7 @@ namespace Tienda_Discos_Web.EjemplosConDropdowns
             try
             {
                 if (!IsPostBack) { 
-                ddlArticulos.DataSource = articuloNegocio.listarConSP();
+                ddlArticulos.DataSource = articuloNegocio.listar();
                 ddlArticulos.DataBind();
                 }
             }

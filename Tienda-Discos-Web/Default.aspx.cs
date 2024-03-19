@@ -16,7 +16,7 @@ namespace Tienda_Electronica_Web
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            ListaArticulo = negocio.listarConSP();
+            ListaArticulo = negocio.listar();
 
             if (!IsPostBack)
             {

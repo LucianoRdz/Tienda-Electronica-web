@@ -19,7 +19,7 @@ namespace Tienda_Discos_Web.EjemplosConDropdowns
             {
                 if (!IsPostBack)
                 {
-                    List<Articulo> listaArticulo = negocio.listarConSP();
+                    List<Articulo> listaArticulo = negocio.listar();
                     Session["listaArticulo"] = listaArticulo;
 
                     List<Marca> listaMarcas = marcaNegocio.listar();

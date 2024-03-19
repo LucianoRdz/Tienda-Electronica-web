@@ -27,13 +27,13 @@
         <% }%>--%>
         <asp:Repeater ID="repRepetidor" runat="server">
             <ItemTemplate>
-                <div class="col">
-                    <div class="card">
-                        <img src="<%#Eval("ImagenUrl")%>" class="card-img-top" alt="...">
+                <div class="col"">
+                    <div class="card"   >
+                        <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                        <img src="<%#Eval("ImagenUrl")%>" class="card-img-top img-thumbnail img-fluid" " alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                            <h4 class="card-title ">$<%#Eval("Precio") %></h4>
                             <p class="card-text"><%#Eval("Descripcion") %></p>
-                            
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
         </asp:Repeater>
     </div>
     <footer>
-        <hr />
+        
         <p>FOOTER</p>
     </footer>
 </asp:Content>
