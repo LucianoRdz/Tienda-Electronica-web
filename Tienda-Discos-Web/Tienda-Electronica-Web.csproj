@@ -70,8 +70,10 @@
     <Content Include="Default.aspx" />
     <Content Include="EjemplosConDropdowns\DropDownEnlazado.aspx" />
     <Content Include="EjemplosConDropdowns\DropDownsEjemplos.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="FormAlta.aspx" />
     <Content Include="Lista.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +98,13 @@
     <Compile Include="EjemplosConDropdowns\DropDownsEjemplos.aspx.designer.cs">
       <DependentUpon>DropDownsEjemplos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormAlta.aspx.cs">
       <DependentUpon>FormAlta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,6 +118,13 @@
     </Compile>
     <Compile Include="Lista.aspx.designer.cs">
       <DependentUpon>Lista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

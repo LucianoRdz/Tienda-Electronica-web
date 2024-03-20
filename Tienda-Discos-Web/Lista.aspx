@@ -5,10 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-    <h1>Lista de productos</h1>
+    <h1 style="color:white;">Lista de productos</h1>
 
-    <div class="row">
-        <div class="col-6">
+    <div class="row" style="color:white;">
+        <div class="col-6" >
             <div class="mb-3">
                 <asp:Label ID="lblBuscar" runat="server" Text="Buscar"></asp:Label>
                 <asp:TextBox ID="txtBuscar" CssClass="form-control  " AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" runat="server"></asp:TextBox>
@@ -24,10 +24,10 @@
 
     <%if (chkAvanzado.Checked)
         {%>
-    <div class="row">
+    <div class="row" style="color:white;">
         <div class="col-3">
             <div class="mb-3">
-                <asp:Label Text="Campo" ID="lblCampo" runat="server" />
+                <asp:Label Text="Buscar por:" ID="lblCampo" runat="server" />
                 <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-control" ID="ddlCampo" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged">
                     <asp:ListItem Text="Nombre" />
                     <asp:ListItem Text="Marca" />
@@ -38,7 +38,7 @@
 
         <div class="col-3">
             <div class="mb-3">
-                <asp:Label Text="Criterio" runat="server" />
+                <asp:Label Text="Criterio:" runat="server" />
                 <asp:DropDownList runat="server" ID="ddlCriterio" CssClass="form-control"></asp:DropDownList>
             </div>
         </div>
@@ -49,27 +49,25 @@
                 <asp:TextBox runat="server" ID="txtFiltroAvanzado" CssClass="form-control" />
             </div>
         </div>
-
-        
-            <div class="col-3">
+             <div class="col-3" style="">
                 <div class="mb-3">
                     <asp:Button Text="Aplicar Filtros" runat="server" CssClass="btn btn-primary" ID="btnBuscar" OnClick="btnBuscar_Click" />
                 </div>
             </div>
-        
-
-    
-    <%} %>
 
     </div>
+            
+    <%} %>
+
+   
 
 
     <asp:GridView ID="dgvArticulos" runat="server" DataKeyNames="Id"
         CssClass="table" AutoGenerateColumns="false"
         OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged"
         OnPageIndexChanging="dgvArticulos_PageIndexChanging"
-        AllowPaging="True" PageSize="7">
-        <Columns>
+        AllowPaging="false" PageSize="8" style=" background-color:#a2a8d3;">
+        <Columns >
             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
             <asp:BoundField HeaderText="Precio" DataField="Precio" />
             <asp:BoundField HeaderText="Marca" DataField="Marca" />

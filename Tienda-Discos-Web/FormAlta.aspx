@@ -8,14 +8,14 @@
     <h1>Formulario de Alta</h1>
     <div class="row">
         <div class="col-6">
-            <div class="mb-3">
+            <div class="mb-3"  >
                 <label for="txtId" class="form-label">Id</label>
-                <asp:TextBox runat="server" ID="txtId" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="txtId" CssClass="form-control" PlaceHolder="Id generado automáticamente"  />
             </div>
 
             <div class="mb-3">
                 <label for="txtNombre" class="form-label">Nombre: </label>
-                <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control"   />
             </div>
 
             <div class="mb-3">
@@ -69,7 +69,7 @@
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <div class="mb-3">
-                        <label for="txtImagenUrl" class="form-label">Url Imagen</label>
+                        <label for="txtImagenUrl" class="form-label">Url Imagen:</label>
                         <asp:TextBox runat="server" ID="txtImagenUrl" CssClass="form-control"
                             AutoPostBack="true" OnTextChanged="txtImagenUrl_TextChanged" />
                     </div>
