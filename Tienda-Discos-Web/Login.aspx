@@ -3,24 +3,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Iniciar Sesión</h2>
 
     <div class="row">
-        <div class="col-6">
-
+        <div class="col-4">
+            <h2>Login</h2>
             <div class="mb-3">
-                <label for="txtEmail" class="form-label">Ingresa tu Email: </label>
-                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
+                <label class="form-label" >Ingrese su Email</label>
+                <asp:TextBox ID="txtEmailLog" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
+            <div class="mb-3">
+                <label class="form-label">Ingrese la contraseña</label>
+                <asp:TextBox runat="server" CssClass="form-control" ID="txtPassword" TextMode="Password" />
+            </div>
+            <asp:Button ID="btnLogin" OnClick="btnLogin_Click" class="btn btn-primary"  runat="server" Text="Iniciar sesión" />
 
-            <div class="mb-3 ">
-                <label type="password" for="txtPass" class="form-label">Password</label>
-                <asp:TextBox runat="server" ID="txtPass" CssClass="form-control" TextMode="Password" />
-            </div>
-            <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click"  />
         </div>
     </div>
-
-
 
 </asp:Content>
