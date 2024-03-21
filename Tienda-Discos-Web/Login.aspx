@@ -9,15 +9,15 @@
         <div class="col-6">
 
             <div class="mb-3">
-                <label for="txtNombreUsuario" class="form-label">Nombre de Usuario: </label>
-                <asp:TextBox runat="server" ID="txtNombreUsuario" CssClass="form-control" />
+                <label for="txtEmail" class="form-label">Ingresa tu Email: </label>
+                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
             </div>
 
             <div class="mb-3 ">
                 <label type="password" for="txtPass" class="form-label">Password</label>
                 <asp:TextBox runat="server" ID="txtPass" CssClass="form-control" TextMode="Password" />
             </div>
-            <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+            <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click"  />
         </div>
     </div>
 

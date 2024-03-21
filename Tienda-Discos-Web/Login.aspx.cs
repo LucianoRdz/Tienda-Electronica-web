@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using negocio;
 using Negocio;
 
+
 namespace Tienda_Discos_Web
 {
     public partial class Login : System.Web.UI.Page
@@ -19,30 +20,22 @@ namespace Tienda_Discos_Web
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            Usuario usuario;
-            UsuarioNegocio negocio = new UsuarioNegocio();
-
-
             try
             {
-                usuario = new Usuario(txtNombreUsuario.Text, txtPass.Text, false);
-                if (negocio.Loguear(usuario))
-                {
-                    Session.Add("usuario", usuario);
-                    Response.Redirect("Default.aspx");
-                }
-                else
-                {
-                    Session.Add("error", "User o password incorrecta");
-                    Response.Redirect("Error.aspx", false);
-                }
+                Usuario user = new Usuario();
+                UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+                user.Email = txtEmail.Text;
+                user.Pass = txtPass.Text;
+                int id = usuarioNegocio.insertarNuevo(user);
 
+                
             }
             catch (Exception ex)
             {
 
                 Session.Add("error", ex.ToString());
             }
+            Response.Redirect("Default.aspx");
         }
     }
 }
