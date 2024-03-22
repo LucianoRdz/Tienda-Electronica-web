@@ -7,13 +7,14 @@ using System.Web.UI.WebControls;
 using dominio;
 using negocio;
 
-namespace Tienda_Discos_Web
+namespace Tienda_Electronica_Web
 {
     public partial class Favoritos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Seguridad.sesionActiva(Session["usuario"]))
+                Response.Redirect("Login.aspx", false);
         }
     }
 }

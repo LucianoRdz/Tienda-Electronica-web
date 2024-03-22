@@ -16,7 +16,7 @@
         </div>
         <div class="col-6" style="display: flex; flex-direction: column; justify-content: flex-end;">
             <div class="mb-3">
-                <asp:CheckBox Text="Más Filtros" runat="server" CssClass=""
+                <asp:CheckBox Text="Filtrar por:" runat="server" CssClass=""
                     ID="chkAvanzado" AutoPostBack="true" OnCheckedChanged="chkAvanzado_CheckedChanged" />
             </div>
         </div>
@@ -24,6 +24,7 @@
 
     <%if (chkAvanzado.Checked)
         {%>
+
     <div class="row" style="color:white;">
         <div class="col-3">
             <div class="mb-3">

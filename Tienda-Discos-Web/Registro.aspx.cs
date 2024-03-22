@@ -5,11 +5,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using negocio;
 
-using Negocio;
 
-
-namespace Tienda_Discos_Web
+namespace Tienda_Electronica_Web
 {
     public partial class Registro : System.Web.UI.Page
     {
@@ -22,11 +21,11 @@ namespace Tienda_Discos_Web
         {
             try
             {
-                Usuario user = new Usuario();
+                Usuario usuario = new Usuario();
                 UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-                user.Email = txtEmail.Text;
-                user.Pass = txtPass.Text;
-                int id = usuarioNegocio.insertarNuevo(user);
+                usuario.Email = txtEmail.Text;
+                usuario.Pass = txtPass.Text;
+                int id = usuarioNegocio.insertarNuevo(usuario);
 
                 Response.Redirect("Default.aspx");
             }

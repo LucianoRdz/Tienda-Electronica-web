@@ -14,6 +14,17 @@ namespace Tienda_Electronica_Web
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (!( Page is Login || Page is Registro))
+            {
+                if (!Seguridad.sesionActiva(Session["usuario"]))
+                    Response.Redirect("Login.aspx", false);
+            }
+                
+        }
+
+        protected void imgAvatar_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("MiPerfil.aspx");
         }
     }
 }

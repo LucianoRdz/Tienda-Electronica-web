@@ -11,7 +11,7 @@ namespace Tienda_Electronica_Web
 {
 
 
-    public partial class Favoritos
+    public partial class MiPerfil
     {
     }
 }

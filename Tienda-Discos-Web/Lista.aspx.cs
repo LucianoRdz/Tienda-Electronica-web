@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using negocio;
 using dominio;
+using negocio;
+
 
 namespace Tienda_Electronica_Web
 {
@@ -14,6 +15,14 @@ namespace Tienda_Electronica_Web
         public bool FiltroAvanzado { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.esAdmin(Session["Usuario"]))
+            {
+                Session.Add("error", "Se requieren permisos de administrador para acceder a esta pagina");
+                Response.Redirect("Error.aspx");
+            }
+
+
+
             if (!IsPostBack)
             {
                 FiltroAvanzado = false;
@@ -21,6 +30,7 @@ namespace Tienda_Electronica_Web
                 Session.Add("listaArticulos", negocio.listar());
                 dgvArticulos.DataSource = Session["listaArticulos"];
                 dgvArticulos.DataBind();
+                ddlCampo.ClearSelection();
             }
 
         }
@@ -49,6 +59,7 @@ namespace Tienda_Electronica_Web
 
         protected void chkAvanzado_CheckedChanged(object sender, EventArgs e)
         {
+
             FiltroAvanzado = chkAvanzado.Checked;
             txtBuscar.Enabled = !FiltroAvanzado;
         }

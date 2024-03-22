@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tienda_Discos_Web
+namespace Tienda_Electronica_Web
 {
 
 
