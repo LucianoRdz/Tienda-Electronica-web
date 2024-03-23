@@ -29,14 +29,26 @@
                         </div>
                     </div>
 
-                    <div class="d-flex" >
-                        <a href="Login.aspx"  class ="btn btn-success me-2" >Iniciar Sesión</a>
-                        <a href="Registro.aspx" style="background-color:darkblue; border-color:darkblue; color:white;" class="btn btn-outline-primary m-auto">Crear Cuenta</a>
-                        <asp:ImageButton ID="imgAvatar" style="height:40px; width:40px; border-radius:50%; margin-left:15px;" 
-                        runat="server" ImageUrl="https://media.istockphoto.com/id/1300845620/es/vector/icono-de-usuario-plano-aislado-sobre-fondo-blanco-s%C3%ADmbolo-de-usuario-ilustraci%C3%B3n-vectorial.jpg?s=612x612&w=0&k=20&c=grBa1KTwfoWBOqu1n0ewyRXQnx59bNHtHjvbsFc82gk=" Onclick="imgAvatar_Click"/>
+
+
+                    <div class="d-flex">
+                        <%if (!negocio.Seguridad.sesionActiva(Session["usuario"]))
+                            {%>
+                                <a href="Login.aspx" class="btn btn-success me-2">Iniciar Sesión</a>
+                                <a href="Registro.aspx" style="background-color: darkblue; border-color: darkblue; color: white;" class="btn btn-outline-primary m-auto">Crear Cuenta</a>
+                          <% }
+                            else { 
+                             %>   
+                            <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" CssClass="btn btn-outline-primary me-2" />  
+                            <asp:Label ID="lblUser" runat="server" Text="user"></asp:Label>
+                           <%}%>
+                        
+                       
+
+                        <asp:ImageButton ID="imgAvatar" Style="height: 40px; width: 40px; border-radius: 50%; margin-left: 15px;"
+                            runat="server"  OnClick="imgAvatar_Click" />
                     </div>
                 </div>
-
 
             </div>
         </nav>

@@ -25,9 +25,10 @@ namespace Tienda_Electronica_Web
                 UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
                 usuario.Email = txtEmail.Text;
                 usuario.Pass = txtPass.Text;
-                int id = usuarioNegocio.insertarNuevo(usuario);
+                usuario.Id = usuarioNegocio.insertarNuevo(usuario);
+                Session.Add("usuario", usuario);
 
-                Response.Redirect("Default.aspx");
+                Response.Redirect("MiPerfil.aspx");
             }
             catch (Exception ex)
             {

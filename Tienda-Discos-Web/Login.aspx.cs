@@ -33,7 +33,7 @@ namespace Tienda_Electronica_Web
                 }
                 else
                 {
-                   Session.Add("error", "usuario o contraseña incorrectos");
+                   Session.Add("error ", "usuario o contraseña incorrectos");
                    Response.Redirect("Error.aspx");                       
                 }
             }
