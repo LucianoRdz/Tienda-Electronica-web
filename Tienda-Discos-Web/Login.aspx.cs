@@ -24,6 +24,12 @@ namespace Tienda_Electronica_Web
             UsuarioNegocio negocio = new UsuarioNegocio();
             try
             {
+                if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text))
+                {
+                    Session.Add("error", "debes completar ambos campos");
+                    Response.Redirect("Error.aspx");
+                }
+
                 usuario.Email = txtEmail.Text;
                 usuario.Pass = txtPassword.Text;
                 if (negocio.Loguear(usuario))

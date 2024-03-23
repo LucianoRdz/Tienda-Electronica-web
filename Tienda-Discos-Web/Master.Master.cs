@@ -22,7 +22,7 @@ namespace Tienda_Electronica_Web
                 else
                 {
                     Usuario user = (Usuario)Session["usuario"];
-                    lblUser.Text = user.Email;
+                   
                      if (!string.IsNullOrEmpty(user.urlImagenPerfil))
                        imgAvatar.ImageUrl = "~/images/" + user.urlImagenPerfil; 
                 }
@@ -33,7 +33,7 @@ namespace Tienda_Electronica_Web
             {
                 Usuario user = (Usuario)Session["usuario"];
                 imgAvatar.ImageUrl = "~/images/" + ((Usuario)Session["usuario"]).urlImagenPerfil;
-                lblUser.Text = user.Email;
+               
             }
             
         }

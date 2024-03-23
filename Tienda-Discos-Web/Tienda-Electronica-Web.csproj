@@ -73,6 +73,7 @@
     <Content Include="Error.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="FormAlta.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Lista.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MiPerfil.aspx" />
@@ -121,6 +122,9 @@
     </Compile>
     <Compile Include="FormAlta.aspx.designer.cs">
       <DependentUpon>FormAlta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Lista.aspx.cs">
       <DependentUpon>Lista.aspx</DependentUpon>
