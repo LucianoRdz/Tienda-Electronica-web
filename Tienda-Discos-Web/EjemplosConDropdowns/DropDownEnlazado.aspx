@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="DropDownEnlazado.aspx.cs" Inherits="Tienda_Discos_Web.EjemplosConDropdowns.DropDownEnlazado" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="DropDownEnlazado.aspx.cs" Inherits="Tienda_Electronica_Web.EjemplosConDropdowns.DropDownEnlazado" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

@@ -14,6 +14,9 @@ namespace Tienda_Electronica_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+
             try
             {
                 if (!IsPostBack)
@@ -21,10 +24,10 @@ namespace Tienda_Electronica_Web
                     if (Seguridad.sesionActiva(Session["usuario"]))
                     {
                         Usuario user = (Usuario)Session["usuario"];
-                        txtEmail.Text =user.Email;
+                        txtEmail.Text = user.Email;
                         txtEmail.ReadOnly = true;
-                        txtNombre.Text =user.Nombre;
-                        txtApellido.Text =user.Apellido;
+                        txtNombre.Text = user.Nombre;
+                        txtApellido.Text = user.Apellido;
                         if (!string.IsNullOrEmpty(user.urlImagenPerfil))
                         {
                             imgNuevoPerfil.ImageUrl = "~/images/" + user.urlImagenPerfil;
@@ -36,8 +39,15 @@ namespace Tienda_Electronica_Web
             {
 
                 Session.Add("Error.aspx", ex.ToString());
-            } 
+            }
         }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
+
+
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -46,7 +56,9 @@ namespace Tienda_Electronica_Web
                 Page.Validate();
                 if (!Page.IsValid)
                 {
+
                     return;
+
                 }
 
                 UsuarioNegocio negocio = new UsuarioNegocio();
@@ -58,8 +70,8 @@ namespace Tienda_Electronica_Web
                     txtImagen.PostedFile.SaveAs(ruta + "perfil-" + user.Id + ".jpg");
                     user.urlImagenPerfil = "perfil-" + user.Id + ".jpg";
                 }
-                
-                
+
+
                 user.Nombre = txtNombre.Text;
                 user.Apellido = txtApellido.Text;
 
@@ -74,10 +86,6 @@ namespace Tienda_Electronica_Web
                 Session.Add("error", ex.ToString());
             }
         }
-
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Default.aspx");
-        }
     }
+
 }

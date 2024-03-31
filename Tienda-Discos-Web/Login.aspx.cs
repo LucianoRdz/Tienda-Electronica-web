@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using dominio;
 using negocio;
+using Tienda_Electronica_Web;
 
 namespace Tienda_Electronica_Web
 {
@@ -24,14 +25,19 @@ namespace Tienda_Electronica_Web
             UsuarioNegocio negocio = new UsuarioNegocio();
             try
             {
-                if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text))
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
+
+                if (Validacion.validaTextoVacio(txtEmail) || Validacion.validaTextoVacio(txtPassword))
                 {
-                    Session.Add("error", "debes completar ambos campos");
+                    Session.Add("error", "Debe completar ambos campos");
                     Response.Redirect("Error.aspx");
                 }
 
                 usuario.Email = txtEmail.Text;
                 usuario.Pass = txtPassword.Text;
+
                 if (negocio.Loguear(usuario))
                 {
                     Session.Add("usuario", usuario);
@@ -43,6 +49,7 @@ namespace Tienda_Electronica_Web
                    Response.Redirect("Error.aspx");                       
                 }
             }
+            catch  (System.Threading.ThreadAbortException ex) { }
             catch (Exception ex)
             {
                 Session.Add("error",ex.ToString());

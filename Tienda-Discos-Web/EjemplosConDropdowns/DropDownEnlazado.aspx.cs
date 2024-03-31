@@ -7,7 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using negocio;
 
-namespace Tienda_Discos_Web.EjemplosConDropdowns
+namespace Tienda_Electronica_Web.EjemplosConDropdowns
 {
     public partial class DropDownEnlazado : System.Web.UI.Page
     {

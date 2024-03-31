@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="DropDownsEjemplos.aspx.cs" Inherits="Tienda_Discos_Web.EjemplosConDropdowns.DropDownsEjemplos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="DropDownsEjemplos.aspx.cs" Inherits="Tienda_Electronica_Web.EjemplosConDropdowns.DropDownsEjemplos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

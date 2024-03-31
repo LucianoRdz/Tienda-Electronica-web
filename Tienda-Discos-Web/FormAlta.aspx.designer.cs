@@ -51,6 +51,15 @@ namespace Tienda_Electronica_Web
         protected global::System.Web.UI.WebControls.TextBox txtPrecio;
 
         /// <summary>
+        /// regexNumero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexNumero;
+
+        /// <summary>
         /// txtCodigo control.
         /// </summary>
         /// <remarks>

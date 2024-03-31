@@ -59,14 +59,15 @@ namespace Tienda_Electronica_Web
 
                     ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
-                    txtImagenUrl_TextChanged(sender, e);
+                    //txtImagenUrl_TextChanged(sender, e);
                 }
 
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex);
-                throw;
+                Response.Redirect("Error.aspx", false);
+               
             }
 
 
@@ -76,7 +77,17 @@ namespace Tienda_Electronica_Web
 
         protected void txtImagenUrl_TextChanged(object sender, EventArgs e)
         {
-            imgArticulo.ImageUrl = txtImagenUrl.Text;
+            try
+            {
+                imgArticulo.ImageUrl = txtImagenUrl.Text;
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex.Message);
+                Response.Redirect("Error.aspx", false);
+            }
+            
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -84,6 +95,11 @@ namespace Tienda_Electronica_Web
 
             try
             {
+
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
+
                 Articulo nuevo = new Articulo();
                 ArticuloNegocio negocio = new ArticuloNegocio();
 

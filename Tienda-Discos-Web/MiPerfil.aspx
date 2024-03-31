@@ -25,18 +25,24 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Apellido</label>
-                <asp:TextBox ID="txtApellido" ClientIDMode="Static" runat="server" CssClass="form-control" MaxLength="8"></asp:TextBox>
-                <label id="lblGuardado" style="color: green; font-size: 15px;"></label>
+                <asp:TextBox ID="txtApellido" ClientIDMode="Static" runat="server" CssClass="form-control" MaxLength="20"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="regexLetras" runat="server"
+                    ControlToValidate="txtApellido"
+                    ErrorMessage="Formato de apellido incorrecto"
+                    ValidationExpression="^[a-zA-Z]+$">
+                </asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator CssClass="validacion" ErrorMessage="El apellido  es obligatorio" ControlToValidate="txtApellido" runat="server" />
 
 
             </div>
+            <div style="margin-bottom: 15px;">
+                <asp:Button Text="Guardar" CssClass="btn btn-primary " ID="btnGuardar" OnClick="btnGuardar_Click" runat="server" />
+                 <a class="btn btn-danger"  href="../Default.aspx">Cancelar</a>
+            </div>
+           
         </div>
 
-        <div>
-            <asp:Button Text="Cancelar" CssClass="btn btn-primary btn-danger" OnClick="btnCancelar_Click" ID="btnCancelar" runat="server" />
 
-        </div>
     </div>
     <div class="col-md-4">
         <div class="mb-3">
