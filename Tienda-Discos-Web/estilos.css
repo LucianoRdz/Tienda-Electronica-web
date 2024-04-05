@@ -1,4 +1,4 @@
-﻿/**{
+﻿*{
     margin:0px;
     padding:0px;
     box-sizing:border-box;
@@ -51,11 +51,11 @@ card-title {
 .card-img-top {
     width: 300px;
     height: 300px;
-}*/
+}
 
 
 
-.card {
+/*.card {
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
@@ -108,5 +108,5 @@ a {
 .validacion {
     color: red;
     font-size: 12px;
-}
+}*/
 

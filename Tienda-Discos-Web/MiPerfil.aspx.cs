@@ -14,31 +14,31 @@ namespace Tienda_Electronica_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-
             try
             {
                 if (!IsPostBack)
                 {
                     if (Seguridad.sesionActiva(Session["usuario"]))
                     {
-                        Usuario user = (Usuario)Session["usuario"];
-                        txtEmail.Text = user.Email;
-                        txtEmail.ReadOnly = true;
-                        txtNombre.Text = user.Nombre;
-                        txtApellido.Text = user.Apellido;
-                        if (!string.IsNullOrEmpty(user.urlImagenPerfil))
+                        if (Seguridad.sesionActiva(Session["usuario"]))
                         {
-                            imgNuevoPerfil.ImageUrl = "~/images/" + user.urlImagenPerfil;
+                            Usuario user = (Usuario)Session["usuario"];
+                            txtEmail.Text = user.Email;
+                            txtEmail.ReadOnly = true;
+                            txtNombre.Text = user.Nombre;
+                            txtApellido.Text = user.Apellido;
+                            if (!string.IsNullOrEmpty(user.urlImagenPerfil))
+                            {
+                                imgNuevoPerfil.ImageUrl = "~/images/" + user.urlImagenPerfil;
+                            }
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-
                 Session.Add("Error.aspx", ex.ToString());
+
             }
         }
 
@@ -56,9 +56,7 @@ namespace Tienda_Electronica_Web
                 Page.Validate();
                 if (!Page.IsValid)
                 {
-
                     return;
-
                 }
 
                 UsuarioNegocio negocio = new UsuarioNegocio();
@@ -77,15 +75,17 @@ namespace Tienda_Electronica_Web
 
                 negocio.actualizar(user);
 
-                Image img = (Image)Master.FindControl("imgAvatar");
-                img.ImageUrl = "~/images/" + user.urlImagenPerfil;
+                Image img = (Image)Master.FindControl("imgIconoAvatar");
+                img.ImageUrl = "~/Images/" + user.urlImagenPerfil;
             }
+
+
+
             catch (Exception ex)
             {
-
-                Session.Add("error", ex.ToString());
+                Session.Add("error", ex.Message);
+                Response.Redirect("Error.aspx", false);
             }
         }
     }
-
 }

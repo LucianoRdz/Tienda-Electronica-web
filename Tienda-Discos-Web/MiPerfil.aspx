@@ -32,26 +32,23 @@
                     ValidationExpression="^[a-zA-Z]+$">
                 </asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator CssClass="validacion" ErrorMessage="El apellido  es obligatorio" ControlToValidate="txtApellido" runat="server" />
-
-
+                <div style="margin-bottom: 15px;">
+                    <asp:Label ID="lblMensaje"  runat="server" forecolor="White" visible="false"   ></asp:Label>
+                    <asp:Button Text="Guardar" CssClass="btn btn-primary " ID="btnGuardar" OnClick="btnGuardar_Click" runat="server" />
+                    <a class="btn btn-danger" href="../Default.aspx">Cancelar</a>
+                </div>
             </div>
-            <div style="margin-bottom: 15px;">
-                <asp:Button Text="Guardar" CssClass="btn btn-primary " ID="btnGuardar" OnClick="btnGuardar_Click" runat="server" />
-                 <a class="btn btn-danger"  href="../Default.aspx">Cancelar</a>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label class="form-label" id="lblImagenPerfil">Imagen Perfil</label>
+                <input type="file" id="txtImagen" runat="server" class="form-control" />
             </div>
-           
+            <asp:Image ID="imgNuevoPerfil" ImageUrl="https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
+                runat="server" CssClass="img-fluid mb-3" />
         </div>
-
-
     </div>
-    <div class="col-md-4">
-        <div class="mb-3">
-            <label class="form-label">Imagen Perfil</label>
-            <input type="file" id="txtImagen" runat="server" class="form-control" />
-        </div>
-        <asp:Image ID="imgNuevoPerfil" ImageUrl="https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
-            runat="server" CssClass="img-fluid mb-3" />
-    </div>
+
 
 </asp:Content>
 

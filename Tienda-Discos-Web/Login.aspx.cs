@@ -17,8 +17,6 @@ namespace Tienda_Electronica_Web
 
         }
 
-        
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
@@ -45,15 +43,16 @@ namespace Tienda_Electronica_Web
                 }
                 else
                 {
-                   Session.Add("error ", "usuario o contraseña incorrectos");
-                   Response.Redirect("Error.aspx");                       
+                    Session.Add("error", "Usuario o Contraseña incorrectos");
+                    Response.Redirect("Error.aspx", false);
                 }
             }
-            catch  (System.Threading.ThreadAbortException ex) { }
+            catch (System.Threading.ThreadAbortException ex) { }
             catch (Exception ex)
             {
-                Session.Add("error",ex.ToString());
-                Response.Redirect("Error.aspx");
+
+                Session.Add("error", ex.Message);
+                Response.Redirect("Error.aspx", false);
             }
         }
     }

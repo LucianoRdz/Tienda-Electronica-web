@@ -13,48 +13,57 @@ namespace Tienda_Electronica_Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            imgAvatar.ImageUrl = "https://media.istockphoto.com/id/1337144146/es/vector/vector-de-icono-de-perfil-de-avatar-predeterminado.jpg?s=612x612&w=0&k=20&c=YiNB64vwYQnKqp-bWd5mB_9QARD3tSpIosg-3kuQ_CI=";
+
+            //if (Seguridad.sesionActiva(Session["usuario"]))
+            //{
+            //    Usuario usuario = (Usuario)Session["usuario"];
+
+            //    if (!string.IsNullOrEmpty(usuario.urlImagenPerfil))
+            //        imgIconoAvatar.ImageUrl = "~/Images/" + usuario.urlImagenPerfil;
+            //    else
+            //        imgIconoAvatar.ImageUrl = "https://previews.123rf.com/images/salamatik/salamatik1801/salamatik180100019/92979836-perfil-an%C3%B3nimo-icono-de-la-cara-persona-silueta-gris-avatar-masculino-por-defecto-foto-de.jpg";
+            //}
+            //else
+            //{
+
+            //    imgIconoAvatar.ImageUrl = "https://previews.123rf.com/images/salamatik/salamatik1801/salamatik180100019/92979836-perfil-an%C3%B3nimo-icono-de-la-cara-persona-silueta-gris-avatar-masculino-por-defecto-foto-de.jpg";
+            //}
+
+            //if (!(Page is Login || Page is Registro || Page is Default || Page is Error))
+            //{
+            //    if (!Seguridad.sesionActiva(Session["usuario"]))
+            //        Response.Redirect("Login.aspx", false);
+
+            //}
+
+
+
+
+            imgIconoAvatar.ImageUrl = "https://media.istockphoto.com/id/1337144146/es/vector/vector-de-icono-de-perfil-de-avatar-predeterminado.jpg?s=612x612&w=0&k=20&c=YiNB64vwYQnKqp-bWd5mB_9QARD3tSpIosg-3kuQ_CI=";
             if (Page is Default)
             {
                 if (Seguridad.sesionActiva(Session["usuario"]))
                 {
                     Usuario user = (Usuario)Session["usuario"];
-                    
                     if (!string.IsNullOrEmpty(user.urlImagenPerfil))
-                        imgAvatar.ImageUrl = "~/Images/" + user.urlImagenPerfil;
+                        imgIconoAvatar.ImageUrl = "~/Images/" + user.urlImagenPerfil;
                 }
             }
 
-
-
-
-            if (!(Page is Login || Page is Registro || Page is Default || Page is Detalles))
+            if (!(Page is Login || Page is Registro || Page is Default || Page is Error|| Page is Detalles))
             {
                 if (!Seguridad.sesionActiva(Session["usuario"]))
-                    Response.Redirect("Default.aspx", false);
+                    Response.Redirect("Login.aspx", false);
                 else
                 {
                     Usuario user = (Usuario)Session["usuario"];
-
                     if (!string.IsNullOrEmpty(user.urlImagenPerfil))
-                        imgAvatar.ImageUrl = "~/images/" + user.urlImagenPerfil;
+                        imgIconoAvatar.ImageUrl = "~/Images/" + user.urlImagenPerfil;
                 }
-
             }
-
-            if (Seguridad.sesionActiva(Session["usuario"]))
-            {
-                Usuario user = (Usuario)Session["usuario"];
-                imgAvatar.ImageUrl = "~/images/" + ((Usuario)Session["usuario"]).urlImagenPerfil;
-
-            }
-
         }
 
-        protected void imgAvatar_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("MiPerfil.aspx");
-        }
+
 
         protected void btnSalir_Click(object sender, EventArgs e)
         {
